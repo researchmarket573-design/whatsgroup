@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Join HYZR WhatsApp Community</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Poppins Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 12px;
+  background: #f7f7f7;
+}
+
+h2 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Grid */
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* Card */
+.card {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px 8px;
+  text-align: center;
+  text-decoration: none;
+  color: #111;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+  transition: transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card:active {
+  transform: scale(0.95);
+}
+
+/* Icon & Text */
+.icon {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Ripple */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.18);
+  transform: scale(0);
+  animation: ripple 500ms ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h2>Join HYZR WhatsApp Community</h2>
+
+<div class="container">
+
+  <a class="card" href="https://chat.whatsapp.com/Foiqi3y5lYYDeTofTpbsG3" onclick="rippleLink(event)">
+    <div class="icon">🚕</div>
+    <div class="title">Cab Partners</div>
+  </a>
+
+  <a class="card" href="https://chat.whatsapp.com/Dpi6AAYtJrgGl35JAp9kab" onclick="rippleLink(event)">
+    <div class="icon">🛺</div>
+    <div class="title">Auto Partners</div>
+  </a>
+
+  <a class="card" href="https://chat.whatsapp.com/JFcZGIBvQFdIsFFDBsTMBx?mode=ems_copy_c" onclick="rippleLink(event)">
+    <div class="icon">🚚</div>
+    <div class="title">Movers</div>
+  </a>
+
+  <a class="card" href="https://chat.whatsapp.com/JENeey5OYMxDlvfgZ5SrMY?mode=ems_copy_c" onclick="rippleLink(event)">
+    <div class="icon">📦</div>
+    <div class="title">Delivery</div>
+  </a>
+
+  <a class="card" href="https://chat.whatsapp.com/HW1IxNo9YY5EQBbyBrYpK7" onclick="rippleLink(event)">
+    <div class="icon">🚑</div>
+    <div class="title">Ambulance</div>
+  </a>
+
+</div>
+
+<script>
+function rippleLink(e) {
+  e.preventDefault();
+  const card = e.currentTarget;
+  const rect = card.getBoundingClientRect();
+  const ripple = document.createElement("span");
+  const size = Math.max(rect.width, rect.height);
+
+  ripple.style.width = ripple.style.height = size + "px";
+  ripple.style.left = ((e.clientX || rect.width/2) - rect.left - size/2) + "px";
+  ripple.style.top  = ((e.clientY || rect.height/2) - rect.top - size/2) + "px";
+  ripple.className = "ripple";
+
+  const old = card.querySelector(".ripple");
+  if (old) old.remove();
+
+  card.appendChild(ripple);
+
+  setTimeout(() => {
+    window.open(card.href, "_blank");
+  }, 160);
+}
+</script>
+
+</body>
+</html>
